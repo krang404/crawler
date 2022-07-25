@@ -1,0 +1,20 @@
+---
+- name: Touche docker compose
+  hosts: all
+  tasks:
+
+
+  - name: Make docker compose file fo crawler
+    template:
+      src: templates/docker-compose.yml.j2
+      dest: /opt/crawler/docker-compose.yml
+
+  - name: Docker Compose DOWN
+    community.docker.docker_compose:
+      project_src: /opt/crawler/
+      state: absent
+
+
+  - name: Docker Compose UP
+    community.docker.docker_compose:
+      project_src: /opt/crawler/
