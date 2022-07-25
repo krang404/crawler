@@ -1,5 +1,7 @@
 ### 0.0.0 (2022-07-25)
 
-- Add docker images to crawler and UI for it
-- Add Gitlab docker image
-- Add Prometheus docker image
+- Добавлен образ Docker для микросервиса crawler
+- Добавлен образ Docker для микросервиса UI
+- Добавлен образ Prometheus
+- Добавлен образ Gitlab
+- Добавлен инфраструктурный код для запуска проекта
