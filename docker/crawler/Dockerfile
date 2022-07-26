@@ -1,12 +1,5 @@
-# FROM alexdo/python-2.4-alpine
 FROM python:3.6-alpine
-# FROM ubuntu:18.04
 
-# RUN apt update -qq\
-#   && apt install -y python3.6 \
-#   && apt install -y python3-pip \
-#   && apt install -y build-essential \
-#   && apt install -y git
 RUN apk add git
 
 ENV MONGO crawler_db
@@ -24,7 +17,4 @@ RUN git clone https://github.com/express42/search_engine_crawler.git $APP_HOME
 WORKDIR $APP_HOME
 RUN pip install -r requirements.txt
 
-#CMD bash
-#ENTRYPOINT ["python3", "-u","crawler.py","https://vitkhab.github.io/search_engine_test_site/"]
-#CMD sleep 30 && python3 -u crawler.py https://vitkhab.github.io/search_engine_test_site/
 CMD python -u ./crawler/crawler.py https://vitkhab.github.io/search_engine_test_site/
