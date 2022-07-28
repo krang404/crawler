@@ -1,6 +1,6 @@
 #!/bin/bash
 
-gitlab-runner register  \
+docker exec -it gitlab_gitlab-runner_1 gitlab-runner register  \
 --url http://{{ YOUR_VM_IP }}/ \
 --non-interactive \
 --locked=false \

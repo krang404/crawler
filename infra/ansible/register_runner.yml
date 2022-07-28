@@ -4,11 +4,11 @@
   tasks:
 
   - name: Make shell script
-    template:
+    ansible.builtin.template:
       src: templates/register_runner.sh.j2
       dest: /srv/gitlab/register_runner.sh
       owner: "{{ ansible_user }}"
-      mode: u=rwx, g=rwx, o=r
+      mode: 0774
 
   - name: Register runner
     command:
