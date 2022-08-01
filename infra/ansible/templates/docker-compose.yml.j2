@@ -22,7 +22,7 @@ services:
         ipv4_address: 10.0.2.3
 
   ui:
-    image: cr.yandex/crp1b5c9anstbgfjiuvg/crawler_ui:latest
+    image: cr.yandex/crp1b5c9anstbgfjiuvg/crawler_ui:crwler_ui:latest
     depends_on:
       - mongo_db
     ports:
@@ -32,7 +32,7 @@ services:
         ipv4_address: 10.0.2.5
 
   crawler:
-     image: cr.yandex/crp1b5c9anstbgfjiuvg/crawler:latest
+     image: cr.yandex/crp1b5c9anstbgfjiuvg/crawler:crawler:latest
      restart: always
      depends_on:
       - mongo_db
