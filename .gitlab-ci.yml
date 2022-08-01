@@ -72,7 +72,7 @@ deploy_dev_job_1:
   before_script:
     - cd crawler/search_engine_crawler
   script:
-    - docker build -t crawler:$CI_COMMIT_REF_NAME-$CI_COMMIT_SHORT_SHA .
+    - docker build -t cr.yandex/crp1a7mp08iqrbenjhol/crawler:$CI_COMMIT_REF_NAME-$CI_COMMIT_SHORT_SHA .
     - docker push cr.yandex/crp1a7mp08iqrbenjhol/crawler:$CI_COMMIT_REF_NAME-$CI_COMMIT_SHORT_SHA
   environment:
     name: branch/$CI_COMMIT_REF_NAME
@@ -86,7 +86,7 @@ deploy_dev_job_2:
   before_script:
     - cd crawler/search_engine_ui
   script:
-    - docker build -t crawler_ui:$CI_COMMIT_REF_NAME-$CI_COMMIT_SHORT_SHA .
+    - docker build -t cr.yandex/crp1a7mp08iqrbenjhol/crawler_ui:$CI_COMMIT_REF_NAME-$CI_COMMIT_SHORT_SHA .
     - docker push cr.yandex/crp1a7mp08iqrbenjhol/crawler_ui:$CI_COMMIT_REF_NAME-$CI_COMMIT_SHORT_SHA
   environment:
     name: branch/$CI_COMMIT_REF_NAME
