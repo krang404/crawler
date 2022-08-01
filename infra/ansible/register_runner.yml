@@ -12,4 +12,4 @@
 
   - name: Register runner
     command:
-      cmd: source /srv/gitlab/register_runner.sh
+      cmd: /srv/gitlab/register_runner.sh
