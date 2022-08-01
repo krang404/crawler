@@ -23,8 +23,8 @@ test_unit_job_1:
     - echo "Тестирование кода...search_engine_crawler"
     - python3 -m unittest discover -s tests/
     - coverage run -m unittest discover -s tests/
-    - coverage report --include crawler/crawler.py > crawler/report_test_search_engine_crawler.txt
-    - cp -f crawler/report_test_search_engine_crawler.txt ${CI_PROJECT_DIR}
+    - coverage report --include crawler/crawler.py > report_test_search_engine_crawler.txt
+    - cp -f report_test_search_engine_crawler.txt ${CI_PROJECT_DIR}
 
 test_unit_job_2:
   stage: test
@@ -35,8 +35,8 @@ test_unit_job_2:
     - echo "Тестирование кода...search_engine_ui"
     - python -m unittest discover -s tests/
     - coverage run -m unittest discover -s tests/
-    - coverage report --include ui/ui.py > crawler/report_test_search_engine_ui.txt
-    - cp -f crawler/report_test_search_engine_ui.txt ${CI_PROJECT_DIR}
+    - coverage report --include ui/ui.py > report_test_search_engine_ui.txt
+    - cp -f report_test_search_engine_ui.txt ${CI_PROJECT_DIR}
 
 
 build_crawler:
