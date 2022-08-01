@@ -73,8 +73,8 @@ deploy_dev_job_1:
     - cd crawler/search_engine_crawler
   script:
     - docker login --username iam --password t1.9euelZrMic_InZiPyMaMxpzHmo6Qke3rnpWams6bnZ2XksmSlpSUy8bNio7l8_d9O2Fo-e9nEEIR_t3z9z1qXmj572cQQhH-zef1656VmpGex42KzseYkZPGypOXjImQ7_0.Yf_h2sDfqOoFooXMxoOUtMdCFQ1iQZ73mbN7D4puMBibmDTYFwtIDvdnsb9B0NMde3XygTa0UGXcumcQcbIPAw cr.yandex
-    - docker build -t cr.yandex/crp1b5c9anstbgfjiuvg/crawler:crawler .
-    - docker push cr.yandex/crp1b5c9anstbgfjiuvg/crawler:crawler
+    - docker build -t cr.yandex/crp1b5c9anstbgfjiuvg/crawler .
+    - docker push cr.yandex/crp1b5c9anstbgfjiuvg/crawler
   environment:
     name: branch/$CI_COMMIT_REF_NAME
   only:
@@ -88,8 +88,8 @@ deploy_dev_job_2:
     - cd crawler/search_engine_ui
   script:
     - docker login --username iam --password t1.9euelZrMic_InZiPyMaMxpzHmo6Qke3rnpWams6bnZ2XksmSlpSUy8bNio7l8_d9O2Fo-e9nEEIR_t3z9z1qXmj572cQQhH-zef1656VmpGex42KzseYkZPGypOXjImQ7_0.Yf_h2sDfqOoFooXMxoOUtMdCFQ1iQZ73mbN7D4puMBibmDTYFwtIDvdnsb9B0NMde3XygTa0UGXcumcQcbIPAw cr.yandex
-    - docker build -t cr.yandex/crp1b5c9anstbgfjiuvg/crawler_ui:crawler_ui .
-    - docker push cr.yandex/crp1b5c9anstbgfjiuvg/crawler_ui:crawler_ui
+    - docker build -t cr.yandex/crp1b5c9anstbgfjiuvg/crawler_ui .
+    - docker push cr.yandex/crp1b5c9anstbgfjiuvg/crawler_ui
   environment:
     name: branch/$CI_COMMIT_REF_NAME
   only:
