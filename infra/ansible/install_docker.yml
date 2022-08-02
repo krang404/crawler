@@ -50,6 +50,12 @@
         groups: docker
         append: true
 
+    - name: Restart Docker daemon
+      become: true
+      service:
+        name: docker
+        state: restarted
+        
     - name: Create directory for gitlab
       file:
         path: /srv/gitlab/{{ item }}
