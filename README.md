@@ -34,15 +34,15 @@
 
 Далее необходимо установить все пакеты docker и зависимости к ним на удаленный хост. Вся установка описана в плейбуке /infra/ansible/install_docker.yml
 
-  ansible-playbook install_docker.yml
+    ansible-playbook install_docker.yml
 
 После установки Docker можно запускать развертывание контейнеров с Gitlab и Gitlab-Runner. Плейбук /infra/ansible/gitlab_up.yml необходимо запускать, определяя переменную YOUR_VM_IP, значение которой - внешний адрес удаленного хоста.
 
-  ansible-playbook gitlab_up.yml -e YOUR_VM_IP=external-IP
+    ansible-playbook gitlab_up.yml -e YOUR_VM_IP=external-IP
 
 Регистрация раннера производится с помощью плейбука /infra/ansible/registr_runner.yml, запуск которого нужно осуществлять определяя переменные YOUR_VM_IP и YOUR_TOKEN. Получить токен в данной инсталляции можно только вручную (см. Ручные операции)
 
-  ansible-playbook registr_runner.yml -e YOUR_VM_IP=external-IP -e YOUR_TOKEN=your_token
+    ansible-playbook registr_runner.yml -e YOUR_VM_IP=external-IP -e YOUR_TOKEN=your_token
 
 ### Ручные операции
 
@@ -58,7 +58,7 @@ Pipeline для непрерывной поставки описан в .gitlab-
 
 Логин в приватное хранилище осуществляется по IAM-токену, получение которого проходит от имени сервисного аккаунта через Yandex CLI.
 
-  yc iam create-token
+    yc iam create-token
 
 Поскольку мы используем приватное хранилище, ссылка на образ принимает вид cr.yandex/registry_id/name_of_image. registry_id мы получили при првоженнинге виртуальной машины через Terraform.
 
@@ -70,7 +70,7 @@ Pipeline для непрерывной поставки описан в .gitlab-
 
 Внимание! Запуск плейбука необходимо осуществлять, определив переменные REGISTRY_ID (ID, полученный при создании инфраструктуры) и IAM_TOKEN (токен, полученный через Yandex CLI).
 
-  ansible-playbook crawler_up.yml -e REGISTRY_ID=registry_id -e IAM_TOKEN=iam_token
+    ansible-playbook crawler_up.yml -e REGISTRY_ID=registry_id -e IAM_TOKEN=iam_token
 
 ### Описание инсталляции
 
