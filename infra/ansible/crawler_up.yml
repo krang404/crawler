@@ -9,6 +9,11 @@
       src: templates/docker-compose.yml.j2
       dest: /opt/crawler/docker-compose.yml
 
+  - name: Login into Yandex Cloud Container Registry
+    command:
+      cmd: docker login --username iam --password {{ IAM_TOKEN }} cr.yandex
+
+
   - name: Docker Compose DOWN
     community.docker.docker_compose:
       project_src: /opt/crawler/

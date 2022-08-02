@@ -7,7 +7,7 @@ ENV MONGO_PORT 27017
 
 
 ENV APP_HOME /app
-RUN git clone https://github.com/express42/search_engine_ui.git $APP_HOME
+COPY . $APP_HOME
 WORKDIR $APP_HOME
 RUN pip install -r requirements.txt
 
