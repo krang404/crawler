@@ -1,4 +1,4 @@
-/infra/*
+# /infra/*
 # Local .terraform directories
 **/.terraform/*
 
