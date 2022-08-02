@@ -22,7 +22,7 @@
 
 Screencast развертывания инфраструктуры в контейнерах доступен по ссылке
 
-[Яндекс.Диск] (https://disk.yandex.ru/i/wGKWKUBjvQjarg "Скринкаст развертывания")
+[ Яндекс.Диск ] (https://disk.yandex.ru/i/wGKWKUBjvQjarg "Скринкаст развертывания")
 
 ### Terraform
 
