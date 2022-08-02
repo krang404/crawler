@@ -8,6 +8,12 @@
       src: templates/docker-compose-gitlab.yml.j2
       dest: /srv/gitlab/docker-compose.yml
 
+  - name: Restart Docker daemon
+    become: true
+    service:
+      name: docker
+      state: restarted
+
   - name: Docker Compose DOWN
     community.docker.docker_compose:
       project_src: /srv/gitlab/
