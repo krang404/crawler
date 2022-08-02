@@ -1,6 +1,7 @@
 ---
 - name: Touche docker compose
   hosts: all
+  become: true
   tasks:
 
 

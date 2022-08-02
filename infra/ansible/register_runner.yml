@@ -1,6 +1,7 @@
 ---
 - name: Register runner
   hosts: all
+  become: true
   tasks:
 
   - name: Make shell script
