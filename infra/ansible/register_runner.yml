@@ -2,6 +2,12 @@
 - name: Register runner
   hosts: all
   become: true
+
+  vars:
+    - YOUR_VM_IP: "51.250.1.189"
+    - YOUR_TOKEN: "GR1348941iJe6s_zWJ_uRxU_MU76E"
+    - YA_REGISTRY: "crpj11uvphqt5o72mocm"
+
   tasks:
 
   - name: Make shell script

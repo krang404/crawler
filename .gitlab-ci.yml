@@ -14,67 +14,67 @@ variables:
 services:
   - docker:20.10.16-dind
 
-test_unit_job_1:
-  stage: test
-  image: python:3.6
-  script:
-    - cd crawler/search_engine_crawler
-    - pip3 install -r requirements.txt -r requirements-test.txt
-    - echo "Тестирование кода...search_engine_crawler"
-    - python3 -m unittest discover -s tests/
-    - coverage run -m unittest discover -s tests/
-    - coverage report --include crawler/crawler.py > report_test_search_engine_crawler.txt
-    - cp -f report_test_search_engine_crawler.txt ${CI_PROJECT_DIR}
-
-test_unit_job_2:
-  stage: test
-  image: python:3.6
-  script:
-    - cd crawler/search_engine_ui
-    - pip install -r requirements.txt -r requirements-test.txt
-    - echo "Тестирование кода...search_engine_ui"
-    - python -m unittest discover -s tests/
-    - coverage run -m unittest discover -s tests/
-    - coverage report --include ui/ui.py > report_test_search_engine_ui.txt
-    - cp -f report_test_search_engine_ui.txt ${CI_PROJECT_DIR}
-
-
-build_crawler:
-  stage: build
-  before_script:
-    - cd crawler/search_engine_crawler
-  script:
-    - docker build -t crawler:$CI_COMMIT_REF_NAME-$CI_COMMIT_SHORT_SHA .
-    - docker run --name crawler-$CI_COMMIT_SHORT_SHA -d crawler:$CI_COMMIT_REF_NAME-$CI_COMMIT_SHORT_SHA
-  environment:
-    name: branch/$CI_COMMIT_REF_NAME
-  only:
-    - branches
-  except:
-    - master
-
-build_crawler_ui:
-  stage: build
-  before_script:
-    - cd crawler/search_engine_ui
-  script:
-    - docker build -t crawler_ui:$CI_COMMIT_REF_NAME-$CI_COMMIT_SHORT_SHA .
-    - docker run --name crawler_ui-$CI_COMMIT_SHORT_SHA -d -p 8000:8000 crawler_ui:$CI_COMMIT_REF_NAME-$CI_COMMIT_SHORT_SHA
-  environment:
-    name: branch/$CI_COMMIT_REF_NAME
-  only:
-    - branches
-  except:
-    - master
+# test_unit_job_1:
+#   stage: test
+#   image: python:3.6
+#   script:
+#     - cd crawler/search_engine_crawler
+#     - pip3 install -r requirements.txt -r requirements-test.txt
+#     - echo "Тестирование кода...search_engine_crawler"
+#     - python3 -m unittest discover -s tests/
+#     - coverage run -m unittest discover -s tests/
+#     - coverage report --include crawler/crawler.py > report_test_search_engine_crawler.txt
+#     - cp -f report_test_search_engine_crawler.txt ${CI_PROJECT_DIR}
+#
+# test_unit_job_2:
+#   stage: test
+#   image: python:3.6
+#   script:
+#     - cd crawler/search_engine_ui
+#     - pip install -r requirements.txt -r requirements-test.txt
+#     - echo "Тестирование кода...search_engine_ui"
+#     - python -m unittest discover -s tests/
+#     - coverage run -m unittest discover -s tests/
+#     - coverage report --include ui/ui.py > report_test_search_engine_ui.txt
+#     - cp -f report_test_search_engine_ui.txt ${CI_PROJECT_DIR}
+#
+#
+# build_crawler:
+#   stage: build
+#   before_script:
+#     - cd crawler/search_engine_crawler
+#   script:
+#     - docker build -t crawler:$CI_COMMIT_REF_NAME-$CI_COMMIT_SHORT_SHA .
+#     - docker run --name crawler-$CI_COMMIT_SHORT_SHA -d crawler:$CI_COMMIT_REF_NAME-$CI_COMMIT_SHORT_SHA
+#   environment:
+#     name: branch/$CI_COMMIT_REF_NAME
+#   only:
+#     - branches
+#   except:
+#     - master
+#
+# build_crawler_ui:
+#   stage: build
+#   before_script:
+#     - cd crawler/search_engine_ui
+#   script:
+#     - docker build -t crawler_ui:$CI_COMMIT_REF_NAME-$CI_COMMIT_SHORT_SHA .
+#     - docker run --name crawler_ui-$CI_COMMIT_SHORT_SHA -d -p 8000:8000 crawler_ui:$CI_COMMIT_REF_NAME-$CI_COMMIT_SHORT_SHA
+#   environment:
+#     name: branch/$CI_COMMIT_REF_NAME
+#   only:
+#     - branches
+#   except:
+#     - master
 
 deploy_dev_job_1:
   stage: review
+  image: cr.yandex/yc/metadata-token-docker-helper:0.2
   before_script:
     - cd crawler/search_engine_crawler
   script:
-    - docker login --username iam --password t1.9euelZqcio-Rm5OYzMiPip6VxpDJmu3rnpWams6bnZ2XksmSlpSUy8bNio7l8_d_fFto-e9SPyxH_t3z9z8rWWj571I_LEf-zef1656VmpGex42KzseYkZPGypOXjImQ7_0.AWxlu0nlWkRsOo0MnOjW7Q3MOeIQ4pB5y9vITQOkJR_nI34DNiFs7wY9VO7ZC5zzU541vSVy6poyExlaZFveBg cr.yandex
-    - docker build -t cr.yandex/crp1lacck54of1rof85d/crawler .
-    - docker push cr.yandex/crp1lacck54of1rof85d/crawler
+    - docker build -t cr.yandex/$YA_REGISTRY/crawler .
+    - docker push cr.yandex/$YA_REGISTRY/crawler
   environment:
     name: branch/$CI_COMMIT_REF_NAME
   only:
@@ -84,12 +84,12 @@ deploy_dev_job_1:
 
 deploy_dev_job_2:
   stage: review
+  image: cr.yandex/yc/metadata-token-docker-helper:0.2
   before_script:
     - cd crawler/search_engine_ui
   script:
-    - docker login --username iam --password t1.9euelZqcio-Rm5OYzMiPip6VxpDJmu3rnpWams6bnZ2XksmSlpSUy8bNio7l8_d_fFto-e9SPyxH_t3z9z8rWWj571I_LEf-zef1656VmpGex42KzseYkZPGypOXjImQ7_0.AWxlu0nlWkRsOo0MnOjW7Q3MOeIQ4pB5y9vITQOkJR_nI34DNiFs7wY9VO7ZC5zzU541vSVy6poyExlaZFveBg cr.yandex
-    - docker build -t cr.yandex/crp1lacck54of1rof85d/crawler_ui .
-    - docker push cr.yandex/crp1lacck54of1rof85d/crawler_ui
+    - docker build -t cr.yandex/$YA_REGISTRY/crawler_ui .
+    - docker push cr.yandex/$YA_REGISTRY/crawler_ui
   environment:
     name: branch/$CI_COMMIT_REF_NAME
   only:
