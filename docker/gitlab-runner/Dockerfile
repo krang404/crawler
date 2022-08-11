@@ -1,4 +1,4 @@
-FROM gitlab/gitlab-runner
+FROM gitlab/gitlab-runner:latest
 
 RUN mkdir -p /home/gitlab-runner/.docker
 
