@@ -1,0 +1,16 @@
+{
+  "auths": {
+    "cr.yandex": {
+      "auth": "b2F1dGg6QVFBQUFBQmRvTEVHQUFUdXdRMWJVdnczM1VnYnRkY2ZFODFJLXM4"
+    },
+    "https://index.docker.io/v1/": {
+      "auth": "a3Jhbmc0MDQ6RHN2MzIxJSRld3E="
+    }
+  },
+  "credHelpers": {
+    "container-registry.cloud.yandex.net": "yc",
+    "cr.cloud.yandex.net": "yc",
+    "cr.cloudil.com": "yc",
+    "cr.yandex": "yc"
+  }
+}
