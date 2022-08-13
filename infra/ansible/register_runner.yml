@@ -4,9 +4,9 @@
   become: true
 
   vars:
-    - YOUR_VM_IP: "62.84.125.100"
-    - YOUR_TOKEN: "GR1348941Cw1zZ1gaBo5-5hsshowo"
-    - YA_REGISTRY: "crp9o1sme0bui1fk3inu"
+    - YOUR_VM_IP: "51.250.95.235"
+    - YOUR_TOKEN: "GR13489419b-UFfCe-T_WYKkayock"
+    - YA_REGISTRY: "crpf1i27ln09cg0p3bg3"
 
   tasks:
 

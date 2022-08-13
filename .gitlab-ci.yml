@@ -69,10 +69,11 @@ services:
 
 deploy_dev_job_1:
   stage: review
-  image: cr.yandex/yc/metadata-token-docker-helper:0.2
+  # image: cr.yandex/yc/metadata-token-docker-helper:0.2
   before_script:
     - cd crawler/search_engine_crawler
   script:
+    - docker login
     - docker build -t cr.yandex/$YA_REGISTRY/crawler .
     - docker push cr.yandex/$YA_REGISTRY/crawler
   environment:
@@ -84,10 +85,11 @@ deploy_dev_job_1:
 
 deploy_dev_job_2:
   stage: review
-  image: cr.yandex/yc/metadata-token-docker-helper:0.2
+  # image: cr.yandex/yc/metadata-token-docker-helper:0.2
   before_script:
     - cd crawler/search_engine_ui
   script:
+    - docker login
     - docker build -t cr.yandex/$YA_REGISTRY/crawler_ui .
     - docker push cr.yandex/$YA_REGISTRY/crawler_ui
   environment:
