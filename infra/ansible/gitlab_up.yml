@@ -1,19 +1,26 @@
 ---
 - name: Touche docker compose
   hosts: all
-  become: true
   tasks:
+
+  - name: Docker Registry Login (copy files)
+    copy:
+      src: templates/{{ item.src }}
+      dest: /home/{{ ansible_user }}/{{ item.dest }}
+      owner: "{{ ansible_user }}"
+      group: "{{ ansible_user }}"
+    loop:
+      - { src: docker_login.sh, dest: docker_login.sh }
+      - { src: key.json, dest: key.json }
+
+  - name: Docker Registry Login
+    command:
+      cmd: bash /home/{{ ansible_user }}/docker_login.sh
 
   - name: Make docker compose file for gitlab
     template:
       src: templates/docker-compose-gitlab.yml.j2
       dest: /srv/gitlab/docker-compose.yml
-
-  - name: Docker Compose DOWN
-    community.docker.docker_compose:
-      project_src: /srv/gitlab/
-      state: absent
-
 
   - name: Docker Compose UP
     community.docker.docker_compose:
