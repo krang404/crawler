@@ -1,6 +1,8 @@
 ---
 - name: Touche docker compose
   hosts: all
+  vars_files:
+    - variable.yml
   tasks:
 
   - name: Docker Registry Login (copy files)

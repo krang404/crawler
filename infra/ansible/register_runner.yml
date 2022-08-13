@@ -2,11 +2,8 @@
 - name: Register runner
   hosts: all
   become: true
-
-  vars:
-    - YOUR_VM_IP: "51.250.95.235"
-    - YOUR_TOKEN: "GR13489419b-UFfCe-T_WYKkayock"
-    - YA_REGISTRY: "crpf1i27ln09cg0p3bg3"
+  vars_files:
+    - variable.yml
 
   tasks:
 

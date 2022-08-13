@@ -19,6 +19,9 @@ cat $(pwd)/modules/test_registry/key.json  |  docker login --username json_key \
   --password-stdin \
   cr.yandex
 
+#Use credentials-helper
+yc container registry configure-docker
+
 #Move credentials to directory with Dockerfile
 mv ~/.docker/config.json  $(pwd)/../../docker/gitlab-runner/
 
