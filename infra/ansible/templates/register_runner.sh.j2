@@ -8,6 +8,7 @@ docker exec -it gitlab_gitlab-runner_1 gitlab-runner register  \
 --executor docker \
 --docker-image docker:stable \
 --docker-privileged \
+--env YA_REGISTRY={{ YA_REGISTRY }} \
 --registration-token {{ YOUR_TOKEN }} \
 --tag-list "linux,xenial,ubuntu,docker" \
 --run-untagged

@@ -1,6 +1,6 @@
 # /infra/*
 # Local .terraform directories
-**/.terraform/*
+/**/.terraform/*
 
 # .tfstate files
 *.tfstate
@@ -30,4 +30,8 @@ override.tf.json
 # example: *tfplan*
 
 /infra/terraform/variables.tf
+/infra/terraform/modules/**/variables.tf
+/infra/terraform/*.tf.backup
+/infra/terraform/.terraform.lock.hcl
 /infra/ansible/inventory
+/infra/ansible/templates/key.json

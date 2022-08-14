@@ -2,18 +2,28 @@
 - name: Touche docker compose
   hosts: all
   become: true
+  vars_files:
+    - variable.yml
   tasks:
 
+  - name: Docker Registry Login (copy files)
+    copy:
+      src: templates/{{ item.src }}
+      dest: /home/{{ ansible_user }}/{{ item.dest }}
+      owner: "{{ ansible_user }}"
+      group: "{{ ansible_user }}"
+    loop:
+      - { src: docker_login.sh, dest: docker_login.sh }
+      - { src: key.json, dest: key.json }
+
+  - name: Docker Registry Login
+    command:
+      cmd: bash /home/{{ ansible_user }}/docker_login.sh
 
   - name: Make docker compose file fo crawler
     template:
       src: templates/docker-compose.yml.j2
       dest: /opt/crawler/docker-compose.yml
-
-  - name: Login into Yandex Cloud Container Registry
-    command:
-      cmd: docker login --username iam --password {{ IAM_TOKEN }} cr.yandex
-
 
   - name: Docker Compose DOWN
     community.docker.docker_compose:

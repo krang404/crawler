@@ -1,6 +1,6 @@
 output "external_ip_0" {
-  value = yandex_compute_instance.docker[0].network_interface.0.nat_ip_address
+  value = module.test_host.external_ip_0
 }
-output "registry_id" {
-  value = yandex_container_registry.registry.id
+output "test_registry_id" {
+  value = module.test_registry.test_registry_id
 }

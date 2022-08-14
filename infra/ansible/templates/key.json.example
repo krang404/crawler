@@ -1,0 +1,8 @@
+{
+   "id": "fakefakes",
+   "service_account_id": "fakefakes",
+   "created_at": "2022-08-14T13:49:43.924731030Z",
+   "key_algorithm": "RSA_2048",
+   "public_key": "-----BEGIN PUBLIC KEY-----\\n-----END PUBLIC KEY-----\n",
+   "private_key": "-----BEGIN PRIVATE KEY-----\\n-----END PRIVATE KEY-----\n"
+}

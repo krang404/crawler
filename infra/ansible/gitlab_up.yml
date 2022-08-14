@@ -1,6 +1,8 @@
 ---
 - name: Touche docker compose
   hosts: all
+  vars_files:
+    - variable.yml
   become: true
   tasks:
 
@@ -8,12 +10,6 @@
     template:
       src: templates/docker-compose-gitlab.yml.j2
       dest: /srv/gitlab/docker-compose.yml
-
-  - name: Docker Compose DOWN
-    community.docker.docker_compose:
-      project_src: /srv/gitlab/
-      state: absent
-
 
   - name: Docker Compose UP
     community.docker.docker_compose:
