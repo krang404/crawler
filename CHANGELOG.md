@@ -1,4 +1,11 @@
 
+### 0.2.0 (2022-08-14)
+
+- Добавлен вход в Yandex Registry через Credential Helper
+- Добавлены модули в код Terraform
+- Добавлено автоматическое формирование переменных и inventory для Ansible
+- Изменен README.md
+
 ### 0.1.0 (2022-08-01)
 
 - Добавлен .gitlab-ci.yml

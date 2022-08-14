@@ -57,7 +57,7 @@ resource "null_resource" "inventory" {
     random : "5"
   }
   provisioner "local-exec" {
-    command = "./yc_register_script.sh ${var.name_sa_test_registry} ${var.id_of_private_registry} ${var.name_sa_private_registry}"
+    command = "./yc_register_script.sh ${yandex_compute_instance.docker.id} ${var.id_of_sa_test_registry}"
   }
 
   provisioner "local-exec" {
@@ -74,7 +74,6 @@ resource "local_file" "ansible_vars" {
 
     YOUR_VM_IP: ${yandex_compute_instance.docker.network_interface.0.nat_ip_address}
     YA_REGISTRY: ${var.id_of_test_registry}
-    PRIVATE_REGISTRY: ${var.id_of_private_registry}
     DOC
   filename = "../ansible/variable.yml"
 }

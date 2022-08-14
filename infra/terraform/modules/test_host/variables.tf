@@ -40,18 +40,9 @@ variable "instance_count" {
 variable "id_of_test_registry" {
   description = "Variable of id of test registry"
 }
-variable "id_of_private_registry" {
-  description = "Variable of id of private registry"
-}
 variable "id_of_sa_test_registry" {
   description = "Variable of id of sa test registry"
 }
-variable "id_of_sa_private_registry" {
-  description = "Variable of id of sa private registry"
-}
 variable "name_sa_test_registry" {
   description = "Variable of name of sa test registry"
-}
-variable "name_sa_private_registry" {
-  default = "Variable of name_sa_private_registry"
 }

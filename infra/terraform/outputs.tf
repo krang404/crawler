@@ -4,6 +4,3 @@ output "external_ip_0" {
 output "test_registry_id" {
   value = module.test_registry.test_registry_id
 }
-output "private_registry_id" {
-  value = module.private_registry.private_registry_id
-}
