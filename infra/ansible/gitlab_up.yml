@@ -3,6 +3,7 @@
   hosts: all
   vars_files:
     - variable.yml
+  become: true
   tasks:
 
   - name: Make docker compose file for gitlab
