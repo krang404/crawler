@@ -9,6 +9,10 @@ docker exec -it gitlab_gitlab-runner_1 gitlab-runner register  \
 --docker-image docker:stable \
 --docker-privileged \
 --env YA_REGISTRY={{ YA_REGISTRY }} \
+<<<<<<< HEAD
+--registration-token {{ gitlab_initial_shared_runners_registration_token }} \
+=======
 --registration-token {{ YOUR_TOKEN }} \
+>>>>>>> bde81f09bb96e648ceed8b6d0c47820f17c11308
 --tag-list "linux,xenial,ubuntu,docker" \
 --run-untagged

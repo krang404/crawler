@@ -49,7 +49,7 @@
         name: "{{ ansible_user }}"
         groups: docker
         append: true
-        
+
     - name: Create directory for gitlab
       file:
         path: /srv/gitlab/{{ item }}

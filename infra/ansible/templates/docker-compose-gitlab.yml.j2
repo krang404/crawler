@@ -8,6 +8,11 @@ services:
     environment:
       GITLAB_OMNIBUS_CONFIG: |
         external_url 'http://{{ YOUR_VM_IP }}'
+
+        gitlab_rails['initial_root_password'] = '{{ gitlab_initial_root_password }}'
+        gitlab_rails['initial_shared_runners_registration_token'] = '{{ gitlab_initial_shared_runners_registration_token }}'
+
+      GITLAB_POST_RECONFIGURE_SCRIPT: /etc/gitlab/post-reconfigure.sh
     ports:
       - '80:80'
       - '443:443'

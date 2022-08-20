@@ -3,8 +3,21 @@
   hosts: all
   vars_files:
     - variable.yml
+<<<<<<< HEAD
+    - secure.yml
+=======
+>>>>>>> bde81f09bb96e648ceed8b6d0c47820f17c11308
   become: true
+
   tasks:
+
+  - name: Copy postconfig script
+    copy:
+      src: templates/post-reconfigure.sh
+      dest: /srv/gitlab/config/post-reconfigure.sh
+      owner: root
+      group: root
+      mode: 0755
 
   - name: Make docker compose file for gitlab
     template:

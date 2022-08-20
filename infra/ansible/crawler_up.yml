@@ -20,6 +20,11 @@
     command:
       cmd: bash /home/{{ ansible_user }}/docker_login.sh
 
+  - name: Delete key.json
+    file:
+      src: home/{{ ansible_user }}/key.json
+      state: absent
+
   - name: Make docker compose file fo crawler
     template:
       src: templates/docker-compose.yml.j2
