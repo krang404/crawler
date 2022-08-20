@@ -1,6 +1,12 @@
 # /infra/*
 # Local .terraform directories
 /**/.terraform/*
+/**/terraform/**/variables.tf
+/**/terraform/**/modules/**/variables.tf
+/**/terraform/**/*.tf.backup
+/**/terraform/**/.terraform.lock.hcl
+/**/ansible/inventory
+/**/ansible/templates/key.json
 
 # .tfstate files
 *.tfstate
@@ -28,10 +34,3 @@ override.tf.json
 
 # Include tfplan files to ignore the plan output of command: terraform plan -out=tfplan
 # example: *tfplan*
-
-/infra/terraform/**/variables.tf
-/infra/terraform/**/modules/**/variables.tf
-/infra/terraform/**/*.tf.backup
-/infra/terraform/**/.terraform.lock.hcl
-/infra/ansible/inventory
-/infra/ansible/templates/key.json
