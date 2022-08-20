@@ -1,12 +1,13 @@
+*.gitignore
 # /infra/*
 # Local .terraform directories
-/**/.terraform/*
-/**/terraform/**/variables.tf
-/**/terraform/**/modules/**/variables.tf
-/**/terraform/**/*.tf.backup
-/**/terraform/**/.terraform.lock.hcl
-/**/ansible/inventory
-/**/ansible/templates/key.json
+**/.terraform/*
+**/terraform/**/variables.tf
+**/terraform/**/modules/**/variables.tf
+**/terraform/**/*.tf.backup
+**/terraform/**/.terraform.lock.hcl
+**/ansible/inventory
+**/ansible/templates/key.json
 
 # .tfstate files
 *.tfstate
