@@ -45,16 +45,11 @@ Screencast развертывания инфраструктуры в конте
 
 Инфраструктура разветывается в контейнерах с использованием Docker Compose. Все необходмые переменные уже определны в ходе работы Terraform. Единственное исключение описано ниже.
 
-<<<<<<< HEAD
 При провиженнинге конфигурации Docker Compose мы определим инициализирующий пароль с помощью переменной $gitlab_initial_root_password, а также создадим токен, определив переменную $gitlab_initial_shared_runners_registration_token для регистрации shared_ranner, который впоследствии используем для CI/CD. Эти переменные спрячем в файл infra/ansible/secure.yml, зашифрованный через ansible-vault.
-=======
-Во-первых, необходимо установить все пакеты docker и зависимости к ним на удаленный хост. Вся установка описана в плейбуке /infra/ansible/install_docker.yml
->>>>>>> bde81f09bb96e648ceed8b6d0c47820f17c11308
 
     ansible-vault create secure.yml
 
-<<<<<<< HEAD
-Во-первых, необходимо установить все пакеты docker и зависимости к ним на удаленный хост. Вся установка описана в плейбуке /infra/ansible/install_docker.yml
+Далее необходимо установить все пакеты docker и зависимости к ним на удаленный хост. Вся установка описана в плейбуке /infra/ansible/install_docker.yml
 
     ansible-playbook install_docker.yml
 
@@ -63,14 +58,6 @@ Screencast развертывания инфраструктуры в конте
     ansible-playbook gitlab_up.yml --ask-vault-pass
 
 Регистрация раннера производится с помощью плейбука /infra/ansible/registr_runner.yml, которым мы отправим на хост шаблон скрипта infra/ansible/templates/register_runner.sh.j2, а потом запустим этот скрипт также с использованием зашифрованных ранее переменных.
-=======
-После установки Docker можно запускать развертывание контейнеров с Gitlab и Gitlab-Runner.
-    ansible-playbook gitlab_up.yml
-
-Регистрация раннера производится с помощью плейбука /infra/ansible/registr_runner.yml, запуск которого нужно осуществлять, определяя переменную YOUR_TOKEN. Получить токен в данной инсталляции можно только вручную (см. Gitlab и CI/CD)
-
-    ansible-playbook registr_runner.yml -e YOUR_TOKEN=your_token
->>>>>>> bde81f09bb96e648ceed8b6d0c47820f17c11308
 
     ansible-playbook registr_runner.yml --ask-vault-pass
 
