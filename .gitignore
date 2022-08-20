@@ -1,13 +1,6 @@
-*.gitignore
 # /infra/*
 # Local .terraform directories
-**/.terraform/*
-**/terraform/**/variables.tf
-**/terraform/**/modules/**/variables.tf
-**/terraform/**/*.tf.backup
-**/terraform/**/.terraform.lock.hcl
-**/ansible/inventory
-**/ansible/templates/key.json
+/**/.terraform/*
 
 # .tfstate files
 *.tfstate
@@ -35,3 +28,10 @@ override.tf.json
 
 # Include tfplan files to ignore the plan output of command: terraform plan -out=tfplan
 # example: *tfplan*
+
+/infra/terraform/docker-compose/variables.tf
+/infra/terraform/docker-compose/modules/**/variables.tf
+/infra/terraform/docker-compose/**.tf.backup
+/infra/terraform/docker-compose/.terraform.lock.hcl
+/infra/ansible/inventory
+/infra/ansible/templates/key.json
