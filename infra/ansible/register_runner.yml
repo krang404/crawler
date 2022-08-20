@@ -4,6 +4,7 @@
   become: true
   vars_files:
     - variable.yml
+    - secure.yml
 
   tasks:
 
