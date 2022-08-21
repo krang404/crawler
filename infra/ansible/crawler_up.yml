@@ -22,7 +22,7 @@
 
   - name: Delete key.json
     file:
-      src: home/{{ ansible_user }}/key.json
+      path: home/{{ ansible_user }}/key.json
       state: absent
 
   - name: Make docker compose file fo crawler
