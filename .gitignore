@@ -29,13 +29,10 @@ override.tf.json
 # Include tfplan files to ignore the plan output of command: terraform plan -out=tfplan
 # example: *tfplan*
 
-<<<<<<< HEAD
 /infra/terraform/docker-compose/variables.tf
 /infra/terraform/docker-compose/modules/**/variables.tf
 /infra/terraform/docker-compose/**.tf.backup
 /infra/terraform/docker-compose/.terraform.lock.hcl
-=======
-
->>>>>>> bde81f09bb96e648ceed8b6d0c47820f17c11308
+/infra/terraform/gitlab/variables.tf
 /infra/ansible/inventory
 /infra/ansible/templates/key.json
