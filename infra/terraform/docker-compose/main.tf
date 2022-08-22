@@ -22,9 +22,15 @@ provider "yandex" {
 module "test_registry" {
   source = "./modules/test_registry"
 }
+
+module "vpc" {
+  source = "./modules/vpc"
+}
+
 module "test_host" {
   source                 = "./modules/test_host"
   id_of_test_registry    = module.test_registry.test_registry_id
   id_of_sa_test_registry = module.test_registry.sa_test_registry_id
   name_sa_test_registry  = module.test_registry.name_sa_test_registry
+  subnet_id              = module.vpc.yandex_vpc_subnet_id
 }
