@@ -1,21 +1,3 @@
-terraform {
-  required_providers {
-    yandex = {
-      source  = "yandex-cloud/yandex"
-      version = "~> 0.35"
-    }
-    null = {
-      source  = "hashicorp/null"
-      version = "= 3.1.1"
-    }
-    local = {
-      source  = "hashicorp/local"
-      version = "= 2.2.2"
-    }
-  }
-  required_version = ">= 1.00"
-}
-
 resource "yandex_compute_instance" "gitlab" {
   # count                     = var.instance_count
   name                      = "gitlab"
