@@ -1,8 +1,8 @@
 # /infra/*
 # Local .terraform directories
 /infra/**/.terraform/*
-/infra/**/ansible-plays/*
-/infra/**/gitlab/*
+#/infra/terraform/ansible-plays/*
+#/infra/terraform/gitlab/*
 # .tfstate files
 *.tfstate
 *.tfstate.*
