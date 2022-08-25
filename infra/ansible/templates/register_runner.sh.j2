@@ -1,7 +1,7 @@
 #!/bin/bash
 
 docker exec -it gitlab_gitlab-runner_1 gitlab-runner register  \
---url http://{{ YOUR_VM_IP }}/ \
+--url https://{{ YOUR_VM_IP }}.sslip.io/ \
 --non-interactive \
 --locked=false \
 --name DockerRunner \
